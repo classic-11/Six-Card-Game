@@ -1,0 +1,57 @@
+/* Layout */
+.page {
+  width: min(1100px, 92%);
+  margin: 24px auto;
+}
+
+.title {
+  text-align: center;
+  margin: 24px 0 10px;
+}
+
+/* Responsive grid */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 18px;
+  padding: 12px 0 28px;
+}
+
+/* Card box: consistent size, no stretching */
+.card {
+  background: #fff;
+  border: 1px solid #e9e9e9;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  padding: 10px;
+  overflow: hidden;
+
+  /* keep a tall playing-card shape */
+  aspect-ratio: 3 / 4;            /* height auto from width */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Image fits inside the box, never stretched */
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;             /* show whole image, preserve ratio */
+  image-rendering: auto;           /* avoid pixelated scaling */
+}
+
+/* Don’t let cards get too big on huge screens */
+@media (min-width: 1400px) {
+  .gallery { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+}
+
+/* Footer */
+footer {
+  background: #f3f3f3;
+  padding: 16px 0;
+  text-align: center;
+  color: #555;
+  font-size: 14px;
+  border-top: 1px solid #ececec;
+}
